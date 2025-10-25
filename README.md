@@ -17,11 +17,13 @@ Download command:
 
 text
 python scripts/download_dataset.py
+
 The dataset includes 35,887 grayscale, 48x48 pixel images of human faces, each categorized into one of seven emotion classes. The data are preprocessed through normalization and augmentation prior to model training.
 
 4. Methodology
 
 4.1 Environment Setup
+
 To run the project, begin by installing required dependencies:
 
 text
