@@ -1,0 +1,38 @@
+# Ignore dataset and training data
+dataset/
+dataset1/
+train/
+test audio/
+Training Code/
+emo/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore model and weight files
+*.h5
+*.ckpt
+*.pt
+*.pth
+*.onnx
+
+# Python cache and environment folders
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+.venv/
+
+# IDE / OS specific files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+.env
+*.env
+secrets.json
+*.log

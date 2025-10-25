@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autism Learning</title>
+    <link rel="icon" href="static/autism.png" type="image/x-icon">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            padding: 0;
+            background: url('static/photo.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container { 
+            margin-top: 80px; 
+            padding: 40px; 
+            background: rgba(255, 255, 255, 0.85);
+            display: inline-block; 
+            border-radius: 12px; 
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+        }
+        .emoji-box { 
+            font-size: 100px; 
+            margin: 15px; 
+            cursor: pointer; 
+            transition: transform 0.3s, box-shadow 0.3s; 
+            display: inline-block;
+        }
+        .emoji-box:hover { 
+            transform: scale(1.2); 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+        }
+        .detected-emoji { 
+            font-size: 120px; 
+            margin-bottom: 20px; 
+        }
+        h1 {
+            color: #444;
+            margin-bottom: 15px;
+        }
+        h3 {
+            color: #333;
+        }
+        p#feedback-message {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Autism Learning</h1>
+        <h3>Select the correct emotion:</h3>
+        <div>
+            <span class="emoji-box" onclick="sendFeedback('anger')">😠</span>
+            <span class="emoji-box" onclick="sendFeedback('disgust')">🤢</span>
+            <span class="emoji-box" onclick="sendFeedback('fear')">😨</span>
+            <span class="emoji-box" onclick="sendFeedback('happiness')">😃</span>
+            <span class="emoji-box" onclick="sendFeedback('neutrality')">😐</span>
+            <span class="emoji-box" onclick="sendFeedback('sadness')">😢</span>
+            <span class="emoji-box" onclick="sendFeedback('surprise')">😲</span>
+        </div>
+        <p id="feedback-message"></p>
+    </div>
+
+    <script>
+        function sendFeedback(emotion) {
+            fetch("/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ emotion: emotion })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("feedback-message").innerText = data.message;
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+
+</body>
+</html>

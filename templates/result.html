@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Level Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('static/'); 
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3c3f41;
+            margin-top: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            text-align: center;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .result-box {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .result {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff5722;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 20px;
+            background-color: #5cb85c;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #4cae4c;
+        }
+
+        /* Camera Button Style */
+        .camera-button {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .camera-button:hover {
+            background-color: #e68900;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Camera Button -->
+    <button class="camera-button" onclick="openCamera()">📷</button>
+
+    <h1>Depression Detection Result</h1>
+    <div class="result-box">
+        <p class="score">Your score: {{ score }}</p>
+        <h2 class="result">Depression Level: {{ result }}</h2>
+        <a href="/" class="button">Try Again</a>
+    </div>
+
+    <script>
+        function openCamera() {
+            window.location.href = "/camera";  // Redirect to the camera page
+        }
+    </script>
+
+</body>
+</html>
