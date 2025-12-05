@@ -1,114 +1,146 @@
-Emotion-Aware Learning for Autistic Children with Audio Sensitivity Analysis
-1. Abstract
+# 🎭 Emotion-Aware Learning for Autistic Children with Audio Sensitivity Analysis
 
-This project introduces a web-based application designed to support children with autism by combining real-time emotion recognition and audio sensitivity analysis. The system detects the parent’s emotions through facial expressions, converts them into appropriate emojis, and displays them on the child’s interface to aid emotional understanding. The child’s responses are observed across three attempts, allowing for structured learning and progress tracking. Additionally, parents can upload different audio samples to assess whether certain sounds cause discomfort, helping identify triggers for irritation. A parental report is automatically generated to summarize learning responses and emotional patterns.
+An interactive, research-driven web application designed to support children with Autism Spectrum Disorder (ASD) by combining **real-time emotion recognition**, **emoji-based learning**, and **audio sensitivity analysis**. The system supports structured emotional learning, tracks response patterns, and provides automated caregiver insights.
 
-2. Project Overview
+---
 
-This repository contains the source code and associated methodological documentation for a web-based application designed to facilitate emotion-aware learning among children with autism spectrum disorder (ASD). The project integrates computer vision-based emotion recognition and audio sensitivity analysis to support structured interventions. The system records, analyzes, and reports interactions in real time, assisting caregivers and researchers in the assessment and support of autistic children.
+##  Abstract
 
-3. Dataset Description
+This project introduces a web-based platform that assists autistic children in identifying emotions by mapping real-time facial expressions of parents into simple, intuitive emojis. Children respond through guided attempts, allowing measurable emotional learning progress.
 
-Dataset: FER-2013 (Facial Expression Recognition)
+The system also analyzes reactions to uploaded audio samples to detect potential auditory discomfort triggers—helping understand sensory sensitivity patterns. The platform generates a parental report summarizing performance, emotional learning, and observed sensitivity responses.
 
-Download source: https://www.kaggle.com/datasets/msambare/fer2013
+---
 
-Download command:
+##  Project Overview
 
-text
+This repository contains the full implementation and methodology of the system, integrating:
+
+- **Computer Vision-based emotion detection**
+- **Deep learning for sentiment classification**
+- **Real-time interaction workflows**
+- **Audio response tracking**
+- **Automated reporting for caregivers**
+
+The project serves as a proof-of-concept for technology-assisted emotional development in autistic children.
+
+---
+
+##  Dataset Information
+
+**Dataset Used:** FER-2013 (Facial Expression Recognition)  
+ Total Images: **35,887**  
+ Resolution: **48×48 pixels (grayscale)**  
+ Labels: 7 emotion classes  
+
+Download from Kaggle via:
+
+```bash
 python scripts/download_dataset.py
 
-The dataset includes 35,887 grayscale, 48x48 pixel images of human faces, each categorized into one of seven emotion classes. The data are preprocessed through normalization and augmentation prior to model training.
 
-4. Methodology
 
-4.1 Environment Setup
+##  Methodology
 
-To run the project, begin by installing required dependencies:
+### 🔧 1. Environment Setup
 
-text
+```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate      # Windows: venv\Scripts\activate
 pip install -r requirements.txt
+```
 
-4.2 Data Acquisition and Preprocessing
-Run the following commands to retrieve and prepare the data:
+---
 
-text
+###  2. Data Acquisition & Preprocessing
+
+```bash
 python scripts/download_dataset.py
 python src/preprocessing/preprocess_data.py
+```
 
-This stage includes normalization and data augmentation.
+Includes data cleaning, normalization, and augmentation.
 
-4.3 Model Training and Evaluation
-Train the InceptionV3 model using:
+---
 
-text
+###  3. Model Training & Evaluation
+
+**Train Emotion Recognition Model:**
+
+```bash
 python src/training/train_model.py --epochs 50 --batch_size 32
-Evaluate performance with:
+```
 
-text
+**Evaluate Performance:**
+
+```bash
 python src/evaluation/evaluate.py
+```
 
-The code employs an InceptionV3 convolutional neural network, adapted via transfer learning to classify facial expressions from the FER-2013 dataset.
+* **Model Backbone:** InceptionV3 (Transfer Learning)
+* **Classifier:** Fine-tuned for FER-2013 emotion classes
 
-5. System Architecture
+---
 
-Data Ingestion and Preprocessing: Handles normalization and augmentation of FER-2013 images.
+## 🏗 System Architecture
 
-Model Training: Customizes and fine-tunes InceptionV3 for emotion classification.
+| Module             | Description                                                         |
+| ------------------ | ------------------------------------------------------------------- |
+| Data Preprocessing | Normalization, augmentation, dataset formatting                     |
+| Model Training     | InceptionV3-based emotion classifier                                |
+| Learning Engine    | Converts detected emotion → emoji for structured emotional learning |
+| Response Tracking  | Logs repeated attempts, improvements & behavioral metrics           |
+| Audio Sensitivity  | Detects reaction patterns to uploaded sound stimuli                 |
+| Reporting          | Generates caregiver report with learning progress insights          |
 
-Learning Module: Delivers real-time visual cues (emojis) based on parent emotion recognition.
+---
 
-Progress Tracking: Records and structures child responses across multiple attempts.
+## ✔️ Current Results
 
-Audio Sensitivity Analysis: Evaluates emotional responses to various auditory stimuli.
+* ✓ Real-time facial emotion detection working
+* ✓ Multi-attempt learning workflow tested
+* ✓ Report generation and response tracking implemented
+* ✓ FER-2013 validation confirms strong recognition accuracy
 
-Automated Reporting: Generates and disseminates detailed session reports to caregivers.
+---
 
-6. Results
+##  Dependencies
 
-Demonstrated real-time emotion recognition and emoji mapping.
+Defined in **requirements.txt**
 
-Multi-attempt tracking and summary reporting functionality implemented.
+Core libraries:
 
-Experimental validation with the FER-2013 dataset confirmed accuracy in emotion detection under controlled conditions.
+* TensorFlow / Keras
+* NumPy / Pandas
+* OpenCV
+* Flask
+* Matplotlib
+* scikit-learn
 
-7. Required Packages
+---
 
-A full list of dependencies is maintained in requirements.txt. Core libraries include:
+##  Repository Structure
 
-numpy
+```
+Emotion-Aware-Learning/
+│
+├── src/
+│   ├── preprocessing/
+│   ├── training/
+│   └── evaluation/
+│
+├── scripts/
+├── data/         # ignored in git
+├── results/      # generated outputs
+├── requirements.txt
+└── README.md
+```
 
-pandas
+---
 
-opencv-python
+##  .gitignore Rules
 
-tensorflow
-
-keras
-
-matplotlib
-
-scikit-learn
-
-flask
-
-8. File Structure
-
-/src/: Source code for model, preprocessing, evaluation.
-
-/scripts/: Helper scripts for dataset management.
-
-/data/: Intended location for raw and processed data (excluded from version control).
-
-/results/: Generated reports and visualizations.
-
-9. .gitignore
-
-All intermediate, output, and sensitive files are excluded from source tracking with the following .gitignore:
-
-text
+```
 __pycache__/
 *.pyc
 *.h5
@@ -118,15 +150,26 @@ data/
 models/
 results/
 .env
+```
 
-10. References
+---
 
-Rashidan et al. (2021). Technology-Assisted Emotion Recognition for Autism Spectrum Disorder. IEEE Access.
+##  References
 
-Chien et al. (2023). Game-Based Social Interaction Platform for Cognitive Assessment of Autism Using Eye Tracking. IEEE Transactions.
+* Rashidan et al. (2021). *Technology-Assisted Emotion Recognition for ASD*. IEEE Access.
+* Chien et al. (2023). *Game-Based Cognitive Assessment with Eye Tracking*. IEEE Transactions.
+* Bartl-Pokorny et al. (2021). *Robot-Based Autism Intervention*. IEEE Access.
+* Prakash et al. (2023). *Computer Vision for Autism Assessment*. IEEE Access.
+* Kurian & Tripathi (2025). *mAutNet: Multimodal Emotion Recognition in ASD*. IEEE Access.
 
-Bartl-Pokorny et al. (2021). Robot-Based Intervention for Children With Autism Spectrum Disorder. IEEE Access.
+---
 
-Prakash et al. (2023). Computer Vision-Based Assessment of Autistic Children. IEEE Access.
+## Future Scope
 
-Kurian & Tripathi (2025). mAutNet: Multimodal Emotion Recognition in Autistic Children. IEEE Access.
+* Integrate Transformer-based emotion analysis
+* Add multilingual support
+* Optimize model for deployment on edge devices (Jetson Nano / Mobile)
+
+---
+
+
