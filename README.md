@@ -1,4 +1,4 @@
-# 🎭 Emotion-Aware Learning for Autistic Children with Audio Sensitivity Analysis
+#  Emotion-Aware Learning for Autistic Children with Audio Sensitivity Analysis
 
 An interactive, research-driven web application designed to support children with Autism Spectrum Disorder (ASD) by combining **real-time emotion recognition**, **emoji-based learning**, and **audio sensitivity analysis**. The system supports structured emotional learning, tracks response patterns, and provides automated caregiver insights.
 
@@ -42,7 +42,7 @@ python scripts/download_dataset.py
 
 ##  Methodology
 
-### 🔧 1. Environment Setup
+###  1. Environment Setup
 
 ```bash
 python -m venv venv
@@ -82,7 +82,7 @@ python src/evaluation/evaluate.py
 
 ---
 
-## 🏗 System Architecture
+##  System Architecture
 
 | Module             | Description                                                         |
 | ------------------ | ------------------------------------------------------------------- |
