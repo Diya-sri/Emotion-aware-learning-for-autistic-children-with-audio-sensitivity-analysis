@@ -40,15 +40,17 @@ python scripts/download_dataset.py
 
 
 
-##  Methodology
+## Methodology
 
-**###  1. Environment Setup**
+### 1. Environment Setup
+
+Create and activate a virtual environment, then install the required dependencies:
 
 ```bash
 python -m venv venv
 source venv/bin/activate      # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-```
+
 
 ---
 
