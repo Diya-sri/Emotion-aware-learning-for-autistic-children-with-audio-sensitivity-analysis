@@ -32,13 +32,11 @@ The project serves as a proof-of-concept for technology-assisted emotional devel
  Total Images: **35,887**  
  Resolution: **48×48 pixels (grayscale)**  
  Labels: 7 emotion classes  
-
 Download from Kaggle via:
 
 ```bash
 python scripts/download_dataset.py
-
-
+```
 
 ## Methodology
 
@@ -53,6 +51,7 @@ pip install -r requirements.txt
 ```
 
 ---
+
 
 ### 2. Data Acquisition & Preprocessing
 
