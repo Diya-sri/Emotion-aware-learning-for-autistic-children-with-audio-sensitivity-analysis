@@ -42,7 +42,7 @@ python scripts/download_dataset.py
 
 ##  Methodology
 
-###  1. Environment Setup
+**###  1. Environment Setup**
 
 ```bash
 python -m venv venv
