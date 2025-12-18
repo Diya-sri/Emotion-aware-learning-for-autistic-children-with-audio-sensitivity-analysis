@@ -44,24 +44,26 @@ python scripts/download_dataset.py
 
 ### 1. Environment Setup
 
-Create and activate a virtual environment, then install the required dependencies:
+**Set up the Python environment and install project dependencies:**
 
 ```bash
 python -m venv venv
 source venv/bin/activate      # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-
+```
 
 ---
 
-###  2. Data Acquisition & Preprocessing
+### 2. Data Acquisition & Preprocessing
+
+**Download the dataset and preprocess the data:**
 
 ```bash
 python scripts/download_dataset.py
 python src/preprocessing/preprocess_data.py
 ```
 
-Includes data cleaning, normalization, and augmentation.
+Includes data cleaning, normalization, and data augmentation.
 
 ---
 
